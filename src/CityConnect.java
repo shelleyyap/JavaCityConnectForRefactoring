@@ -56,6 +56,8 @@ public class CityConnect {
 		ADD_ROUTE, GET_DISTANCE, INVALID, EXIT
 	};
 
+	// This refers to the maximum storage space for routes
+	private static final in PARAM_MAX_STORAGE_SPACE = 10;
 	// This is used to indicate there is no suitable slot to store route
 	private static final int SLOT_UNAVAILABLE = -1;
 	
@@ -72,7 +74,7 @@ public class CityConnect {
 	private static final int PARAM_POSITION_DISTANCE = 2;
 
 	// This array will be used to store the routes
-	private static String[][] route = new String[10][3];
+	private static String[][] route = new String[PARAM_MAX_STORAGE_SPACE][PARAM_SIZE_FOR_ADD_ROUTE];
 
 	/*
 	 * These are the locations at which various components of the route will be
