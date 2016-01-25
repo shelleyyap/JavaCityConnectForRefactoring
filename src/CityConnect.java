@@ -289,7 +289,7 @@ public class CityConnect {
 			String existingStartLocation = route[i][STORAGE_POSITION_START_LOCATION];
 			String existingEndLocation = route[i][STORAGE_POSITION_END_LOCATION];
 
-			if (existingStartLocation == null) { // empty slot
+			if (isLocationNull(existingStartLocation)) { // empty slot
 				return i;
 			} else if (sameRoute(existingStartLocation, existingEndLocation,
 					newStartLocation, newEndLocation)) {
@@ -305,8 +305,8 @@ public class CityConnect {
 	private static boolean sameRoute(String existingStartLocation,
 			String existingEndLocation, String newStartLocation, String newEndLocation) {
 
-		if ((existingStartLocation == null) || (existingEndLocation == null)
-				&& (newStartLocation == null) || (newEndLocation == null)) {
+		if (isLocationNull(existingStartLocation) || isLocationNull(existingEndLocation)
+				&& isLocationNull(newStartLocation) || isLocationNull(newEndLocation)) {
 			throw new Error("Route end points cannot be null");
 		}
 
@@ -338,5 +338,8 @@ public class CityConnect {
 	private static String[] splitParameters(String commandParametersString) {
 		String[] parameters = commandParametersString.trim().split("\\s+");
 		return parameters;
+	}
+	private static boolean isLocationNull(String location){
+		return location == null;
 	}
 }
