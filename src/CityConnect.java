@@ -164,8 +164,7 @@ public class CityConnect {
 	 * This operation determines which of the supported command types the user
 	 * wants to perform
 	 * 
-	 * @param commandTypeString
-	 *            is the first word of the user command
+	 * @param commandTypeString is the first word of the user command
 	 */
 	private static COMMAND_TYPE determineCommandType(String commandTypeString) {
 		if (commandTypeString == null) {
@@ -186,9 +185,8 @@ public class CityConnect {
 	/**
 	 * This operation is used to find the distance between two locations
 	 * 
-	 * @param userCommand
-	 *            is the full string user has entered as the command
-	 * @return the distance
+	 * @param userCommand is the full string user has entered as the command
+	 * @return 			  Returns the distance
 	 */
 	private static String getDistance(String userCommand) {
 
@@ -206,9 +204,7 @@ public class CityConnect {
 		if (position == NOT_FOUND) {
 			return String.format(MESSAGE_NO_ROUTE, newStartLocation,
 					newEndLocation);
-		} 
-		else 
-		{
+		} else {
 			return String.format(MESSAGE_DISTANCE, newStartLocation, newEndLocation,
 					route[position][STORAGE_POSITION_DISTANCE]);
 		}
@@ -217,7 +213,7 @@ public class CityConnect {
 
 	/**
 	 * @return Returns the position of the route represented by 
-	 *    newStartLocation and newEndLocation. Returns NOT_FOUND if not found.
+	 *    	   newStartLocation and newEndLocation. Returns NOT_FOUND if not found.
 	 */
 	private static int  getPositionOfExistingRoute(String newStartLocation,
 			String newEndLocation) {
@@ -240,9 +236,8 @@ public class CityConnect {
 	 * This operation adds a route to the storage. If the route already exists,
 	 * it will be overwritten.
 	 * 
-	 * @param userCommand
-	 *            (although we receive the full user command, we assume without
-	 *            checking the first word to be 'addroute')
+	 * @param userCommand (although we receive the full user command, we assume without
+	 *            		   checking the first word to be 'addroute')
 	 * @return status of the operation
 	 */
 	private static String addRoute(String userCommand) {
@@ -283,8 +278,8 @@ public class CityConnect {
 
 	/**
 	 * @return Returns a suitable slot for the route represented by 
-	 *   newStartLocation and newEndLocation. Returns SLOT_UNAVAILABLE if
-	 *   no suitable slot is found.
+	 *   	   newStartLocation and newEndLocation. Returns SLOT_UNAVAILABLE if
+	 *   	   no suitable slot is found.
 	 */
 	private static int location(String newStartLocation,
 			String newEndLocation) {
