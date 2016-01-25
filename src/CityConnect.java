@@ -307,18 +307,18 @@ public class CityConnect {
 	/**
 	 * This operation checks if two routes represents the same route.
 	 */
-	private static boolean sameRoute(String startLocation1,
-			String endLocation1, String startLocation2, String endLocation2) {
+	private static boolean sameRoute(String existingStartLocation,
+			String existingEndLocation, String newStartLocation, String newEndLocation) {
 
-		if ((startLocation1 == null) || (endLocation1 == null)
-				&& (startLocation2 == null) || (endLocation2 == null)) {
+		if ((existingStartLocation == null) || (existingEndLocation == null)
+				&& (newStartLocation == null) || (newEndLocation == null)) {
 			throw new Error("Route end points cannot be null");
 		}
 
-		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1
-				.equalsIgnoreCase(endLocation2))
-				|| (startLocation1.equalsIgnoreCase(endLocation2) && endLocation1
-						.equalsIgnoreCase(startLocation2));
+		return (existingStartLocation.equalsIgnoreCase(newStartLocation) && existingEndLocation
+				.equalsIgnoreCase(newEndLocation))
+				|| (existingStartLocation.equalsIgnoreCase(newEndLocation) && existingEndLocation
+						.equalsIgnoreCase(newStartLocation));
 	}
 
 	private static boolean isPositiveNonZeroInt(String s) {
